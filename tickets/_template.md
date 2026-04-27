@@ -1,7 +1,7 @@
 # Ticket: [TITLE]
 
 ## Status
-`todo` | `in-progress` | `done`
+`todo` | `in-progress` | `in-review` | `done`
 
 ## Priority
 `low` | `medium` | `high`

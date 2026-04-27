@@ -1,0 +1,49 @@
+# Ticket 001: Initial Project Scaffold with Splash Screen
+
+## Status: `todo`
+
+## Priority: `high`
+
+## Description
+
+Set up the initial Vue 3 project from scratch so the application is runnable with a working splash screen and an empty home view. This includes scaffolding the project with all core dependencies (Vite, TypeScript, Vuetify 3, Pinia, Vue Router, Vitest), configuring the Vuetify theme, defining all routes, building the app shell with sidebar, and implementing the splash screen with a 3-second redirect to an empty home page. Stub views must be created for all remaining routes so they are reachable. TypeScript interfaces and a basic Pinia notes store should also be set up.
+
+## Acceptance Criteria
+
+- [ ] Project is scaffolded with Vue 3, TypeScript (strict), Vite, Vue Router, Pinia, Vitest
+- [ ] Vuetify 3 is installed and configured with custom theme (`primary: #D32F2F`, complementary red shades, white background)
+- [ ] `@mdi/font` is installed and available for Material Design Icons
+- [ ] `pinia-plugin-persistedstate` is installed and registered
+- [ ] All 7 routes are defined: `/` redirects to `/splash`, `/splash`, `/home`, `/notes`, `/notes/:id`, `/tickets`, `/issues`
+- [ ] All route views are lazy-loaded
+- [ ] `App.vue` contains `v-app` with conditional `AppSidebar` (hidden on `/splash`) and `router-view`
+- [ ] `AppSidebar.vue` is a `v-navigation-drawer` with 4 navigation links: Home (`mdi-home`), Notes (`mdi-note-text`), Tickets (`mdi-ticket-outline`), Issues (`mdi-alert-circle-outline`)
+- [ ] `SplashView.vue` displays the app name "Ticket Buddy", an MDI icon, and a `v-progress-circular` (indeterminate, primary color), all centered
+- [ ] Splash screen automatically navigates to `/home` after 3 seconds using `router.replace()` (back button does not return to splash)
+- [ ] `HomeView.vue` renders as an empty page with a placeholder title
+- [ ] Stub views exist for Notes, NoteDetail, Tickets, and Issues (minimal, e.g. just a heading)
+- [ ] TypeScript interfaces are defined in `src/types/`: `Note`, `JiraTicket`, `GitHubIssue`
+- [ ] Basic Pinia notes store exists in `src/stores/notes.ts` with localStorage persistence and an empty notes array
+- [ ] Splash screen and home view are fully responsive (desktop and mobile)
+- [ ] Vitest tests exist and pass:
+  - SplashView renders app name and progress indicator
+  - SplashView redirects to `/home` after 3 seconds
+  - Router redirects `/` to `/splash`
+  - AppSidebar renders all 4 navigation links
+  - HomeView renders without errors
+- [ ] `npm run build` completes without errors
+- [ ] `npm run test` passes with all tests green
+- [ ] `npm run lint` passes with no errors
+
+## Notes
+
+- No AI service integration in this ticket — that will come later.
+- HomeView is intentionally empty (just a placeholder); full layout with note input, generate button, and recent notes panel will be a separate ticket.
+- Feature branch should be named `feature/001-initial-project-setup`.
+
+## Linked Docs
+
+- [docs/features/splash-screen.md](../docs/features/splash-screen.md)
+- [docs/features/home.md](../docs/features/home.md)
+- [docs/features/app-sidebar.md](../docs/features/app-sidebar.md)
+- [docs/architecture/overview.md](../docs/architecture/overview.md)

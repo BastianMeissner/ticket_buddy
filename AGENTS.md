@@ -115,22 +115,37 @@ These rules are mandatory for every agent and contributor:
   - **Right (Home view only):** Recent notes panel showing timestamp and preview.
 - **Vuetify theming:** Define a custom Vuetify theme with `primary: '#D32F2F'` and appropriate complementary colors. Apply the theme globally in `main.ts`.
 
+### Ticket Status Flow
+
+Every ticket follows this lifecycle:
+
+| Status | When |
+| --- | --- |
+| `todo` | Ticket is in the backlog, not yet started |
+| `in-progress` | Work has started — set when the agent begins implementation |
+| `in-review` | A Pull Request has been created — set when the PR is opened |
+| `done` | PR is merged and ticket is complete |
+
+Always update the ticket's `## Status` field when transitioning between states.
+
 ### Workflow
-1. Read the relevant ticket in `tickets/`.
+1. Read the relevant ticket in `tickets/` and **set its status to `in-progress`**.
 2. **Pull the latest `main`** — run `git fetch origin && git pull origin main` to ensure you start from the latest code.
 3. **Create a feature branch** from `main` named after the ticket (e.g., `feature/001-scaffold-vue-project`).
-3. Implement the changes following all rules above.
-4. Write/update tests for the new or changed functionality.
-5. Run `npm run test` — all tests must pass.
-6. Run `npm run lint` — no lint errors allowed.
-7. Update documentation and `README.md` if needed.
-8. Commit with a clear, descriptive message.
-9. **Push the feature branch and create a Pull Request into `main`** with:
-   - A summary of what was changed and why.
-   - List of files modified.
-   - Any side effects or things to watch out for.
-   - Link to the relevant ticket.
-10. Wait for review — do **not** merge into `main` without approval.
+4. Implement the changes following all rules above.
+5. Write/update tests for the new or changed functionality.
+6. Run `npm run test` — all tests must pass.
+7. Run `npm run lint` — no lint errors allowed.
+8. Update documentation and `README.md` if needed.
+9. Commit with a clear, descriptive message.
+10. **Push the feature branch and create a Pull Request into `main`** with:
+    - A summary of what was changed and why.
+    - List of files modified.
+    - Any side effects or things to watch out for.
+    - Link to the relevant ticket.
+11. **Set the ticket status to `in-review`.**
+12. Wait for review — do **not** merge into `main` without approval.
+13. After merge, **set the ticket status to `done`**.
 
 ---
 
