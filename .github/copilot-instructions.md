@@ -37,4 +37,6 @@ src/
 - App must be responsive: fully usable on desktop and mobile browsers.
 - Every functionality needs its own test (Vitest).
 - Always use latest stable dependency versions.
+- Always work on a **feature branch** per ticket — never commit directly to `main`.
+- Create a **Pull Request** with useful comments for review before merging.
 - Refer to `AGENTS.md` for the complete set of coding rules and workflow.

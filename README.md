@@ -72,11 +72,13 @@ ticket_buddy/
 ## Contributing
 
 1. Pick a ticket from `tickets/`.
-2. Follow the coding rules in `AGENTS.md`.
-3. Write tests for all new functionality.
-4. Run `npm run test` — all tests must pass before committing.
-5. Update this README if the change affects setup, structure, or features.
-6. Write clear documentation for each commit and pull request.
+2. Create a **feature branch** from `main` (e.g., `feature/001-scaffold-vue-project`).
+3. Follow the coding rules in `AGENTS.md`.
+4. Write tests for all new functionality.
+5. Run `npm run test` — all tests must pass before committing.
+6. Update this README if the change affects setup, structure, or features.
+7. Push and create a **Pull Request into `main`** with a clear summary of changes.
+8. Wait for review and approval before merging.
 
 ## License
 
