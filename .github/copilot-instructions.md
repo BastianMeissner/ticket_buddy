@@ -5,7 +5,7 @@
 
 ## Project
 
-**Ticket Buddy** — A Vue 3 web app that converts free-form notes into structured Jira tickets via AI.
+**Ticket Buddy** — A Vue 3 web app that converts free-form notes into structured Jira tickets or GitHub issues via AI.
 
 ## Tech Stack
 
@@ -22,10 +22,10 @@
 ```
 src/
 ├── components/    # Reusable Vue components
-├── views/         # Route-level page components (SplashView, HomeView, NotesView, NoteDetailView)
+├── views/         # Route-level page components (SplashView, HomeView, NotesView, NoteDetailView, TicketsView, IssuesView)
 ├── stores/        # Pinia stores (notes store with localStorage persistence)
 ├── services/      # AI service integration
-├── types/         # TypeScript interfaces (Note, JiraTicket)
+├── types/         # TypeScript interfaces (Note, JiraTicket, GitHubIssue)
 ├── router/        # Vue Router config
 └── main.ts        # App entry, Vuetify/Pinia/Router plugin setup
 ```
@@ -39,4 +39,6 @@ src/
 - Always use latest stable dependency versions.
 - Always work on a **feature branch** per ticket — never commit directly to `main`.
 - Create a **Pull Request** with useful comments for review before merging.
+- **UI Theme:** White-and-red Vuetify theme (`#D32F2F` primary) with complementary red shades. Modern, colorful, and user-friendly design.
+- **Global Layout:** Left `AppSidebar` navigation drawer on all views except splash (Home, Notes, Tickets, Issues). Home view has an additional right panel for recent notes.
 - Refer to `AGENTS.md` for the complete set of coding rules and workflow.

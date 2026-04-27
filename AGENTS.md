@@ -7,7 +7,7 @@
 
 ## Project Summary
 
-**Ticket Buddy** is a Vue 3 web application that converts free-form notes into structured Jira tickets using AI. Users write notes (with a topic), an AI service processes them, and the result is a ready-to-use Jira ticket with summary, description, acceptance criteria, priority, and labels.
+**Ticket Buddy** is a Vue 3 web application that converts free-form notes into structured Jira tickets or GitHub issues using AI. Users write notes (with a topic), select an output type (Jira Ticket or GitHub Issue), and the AI service generates a ready-to-use structured result.
 
 ---
 
@@ -105,6 +105,16 @@ These rules are mandatory for every agent and contributor:
 - The app must be fully usable in a web browser on both **desktop PC and smartphone**.
 - Use Vuetify's responsive grid system and breakpoint utilities.
 
+### UI Theme & Usability
+- **Color scheme:** White backgrounds with red as the primary color (`#D32F2F`). Complementary red shades (e.g., `#F44336`, `#E57373`, `#FFCDD2`, `#B71C1C`) may be used for accents, hover states, gradients, and secondary elements to create a colorful, vibrant design.
+- **Modern aesthetic:** Clean typography, generous whitespace, subtle elevation (`elevation` prop on cards/surfaces), rounded corners (`rounded` prop), and smooth transitions. The UI should feel polished and contemporary.
+- **Usability-first:** Interfaces must be simple, self-explanatory, and require minimal learning. Use clear call-to-action buttons, logical grouping, and intuitive navigation. Avoid visual clutter.
+- **Global layout (all views except splash):**
+  - **Left:** `AppSidebar` — persistent `v-navigation-drawer` with navigation links: Home (`mdi-home`), Notes (`mdi-note-text`), Tickets (`mdi-ticket-outline`), Issues (`mdi-alert-circle-outline`). Collapsible on mobile.
+  - **Center:** Main content area specific to each view.
+  - **Right (Home view only):** Recent notes panel showing timestamp and preview.
+- **Vuetify theming:** Define a custom Vuetify theme with `primary: '#D32F2F'` and appropriate complementary colors. Apply the theme globally in `main.ts`.
+
 ### Workflow
 1. Read the relevant ticket in `tickets/`.
 2. **Pull the latest `main`** — run `git fetch origin && git pull origin main` to ensure you start from the latest code.
@@ -130,10 +140,11 @@ These rules are mandatory for every agent and contributor:
 ```typescript
 interface Note {
   id: string
-  input: string        // Raw user note (free-form text)
-  ai_result: JiraTicket | null  // AI-generated structured ticket
-  timestamp: string    // ISO 8601 timestamp
-  topic: string        // Topic/category of the note
+  input: string                          // Raw user note (free-form text)
+  ai_result: JiraTicket | GitHubIssue | null  // AI-generated result (ticket or issue)
+  outputType?: 'ticket' | 'issue'        // Only set when user clicks "Generate"
+  timestamp: string                      // ISO 8601 timestamp
+  topic: string                          // Topic/category of the note
 }
 ```
 
@@ -148,16 +159,32 @@ interface JiraTicket {
 }
 ```
 
+### GitHubIssue
+```typescript
+interface GitHubIssue {
+  title: string
+  body: string
+  labels: string[]
+  assignees: string[]
+  milestone: string | null
+  state: 'open' | 'closed'
+  stateReason: 'completed' | 'not_planned' | 'duplicate' | 'reopened' | null
+  type: string | null
+}
+```
+
 ---
 
 ## Routing
 
 | Route      | View              | Purpose                              |
 | ---------- | ----------------- | ------------------------------------ |
-| `/splash`  | `SplashView.vue`  | 3s loading screen, then redirects to `/home` |
-| `/home`    | `HomeView.vue`    | Main dashboard / landing page        |
-| `/notes`   | `NotesView.vue`   | Create notes, generate Jira tickets  |
-| `/notes/:id` | `NoteDetailView.vue` | View single note + generated ticket |
+| `/splash`    | `SplashView.vue`    | 3s loading screen, then redirects to `/home`     |
+| `/home`      | `HomeView.vue`      | Main dashboard — note input, type select, generate |
+| `/notes`     | `NotesView.vue`     | List all saved notes                               |
+| `/notes/:id` | `NoteDetailView.vue`| View single note + generated ticket/issue          |
+| `/tickets`   | `TicketsView.vue`   | List notes with generated Jira tickets             |
+| `/issues`    | `IssuesView.vue`    | List notes with generated GitHub issues            |
 
 Default route (`/`) redirects to `/splash`.
 

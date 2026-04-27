@@ -29,6 +29,15 @@ A 3-second loading screen displayed when the app starts. Shows the app name, a d
 - Use Vuetify transitions or CSS animation for a smooth appearance (e.g., fade-in on the app name).
 - Must look good on both desktop and mobile screens.
 
+## UI / Theme
+
+- **Background:** White (`#FFFFFF`), clean and minimal.
+- **Progress indicator:** Use `color="primary"` (`#D32F2F`) on the `v-progress-circular` component.
+- **App name:** Bold, modern typography. Consider a subtle red accent or gradient on the title text.
+- **Icon:** Use a red-tinted Material Design icon to match the theme.
+- **No sidebar:** The splash screen does not display the `AppSidebar` — it is a standalone fullscreen view.
+- **Overall feel:** Modern, polished, and inviting. The splash should set the visual tone for the rest of the app.
+
 ## Acceptance Criteria
 
 - [ ] App starts on `/splash` screen.
