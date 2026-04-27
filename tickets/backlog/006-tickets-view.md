@@ -55,7 +55,7 @@ Implement the Tickets View (`TicketsView.vue`) — a filtered list showing only 
 - This view is read-only — no editing or generation happens here.
 - The NoteDetailView (Ticket 005 or later) must exist at least as a stub for navigation to work.
 - Feature branch should be named `feature/006-tickets-view`.
-- Depends on Tickets 001–005 being completed first.
+- Depends on Tickets 001–004 being completed first.
 
 ## Linked Docs
 

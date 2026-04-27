@@ -1,4 +1,4 @@
-# Ticket 003: AI Generation — Convert Notes to Jira Tickets & GitHub Issues
+# Ticket 004: AI Generation — Convert Notes to Jira Tickets & GitHub Issues
 
 ## Status: `todo`
 
@@ -60,8 +60,8 @@ Implement the AI generation feature that converts free-form notes into structure
 - Use `vi.fn()` / `vi.mock()` to mock `fetch` in tests — do not make real API calls.
 - The `VITE_GITHUB_TOKEN` is embedded in the frontend bundle at build time. This is acceptable for local development but not production-safe (documented in `docs/ai-service-setup.md`).
 - The NoteDetailView to display the generated result is **not** part of this ticket — it will be handled separately. For now, navigation to `/notes/:id` is sufficient even if the detail view is still a stub.
-- Feature branch should be named `feature/003-ai-generation`.
-- Depends on Tickets 001 and 002 being completed first.
+- Feature branch should be named `feature/004-ai-generation`.
+- Depends on Tickets 001–003 being completed first.
 
 ## Linked Docs
 

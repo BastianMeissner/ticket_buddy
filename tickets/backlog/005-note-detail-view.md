@@ -40,6 +40,21 @@ Implement the Note Detail View (`NoteDetailView.vue`) — a single-note view dis
   - Milestone (if present)
   - Type (if present)
 
+### Edit Note
+- [ ] An "Edit" button with `mdi-pencil` icon is displayed on the note card
+- [ ] Clicking "Edit" toggles the note card into edit mode:
+  - Topic becomes an editable `v-text-field`
+  - Note text (`input`) becomes an editable `v-textarea`
+- [ ] A "Save" button (`mdi-content-save`) saves changes to the Pinia store and exits edit mode
+- [ ] A "Cancel" button (`mdi-close`) discards changes and exits edit mode
+- [ ] Validation: topic and input must not be empty — show inline error if blank
+
+### Delete Note
+- [ ] A "Delete" button with `mdi-delete` icon is displayed on the note card
+- [ ] Clicking "Delete" opens a confirmation dialog (`v-dialog`) asking: "Are you sure you want to delete this note?"
+- [ ] Confirming deletes the note from the Pinia store and navigates to `/notes`
+- [ ] Cancelling closes the dialog without any changes
+
 ### No AI Result State
 - [ ] If `ai_result` is null, show a message: "No AI result generated yet"
 - [ ] A "Generate" button is shown that navigates to `/home` (or triggers generation if AI service is available)
@@ -62,13 +77,17 @@ Implement the Note Detail View (`NoteDetailView.vue`) — a single-note view dis
 - [ ] NoteDetailView shows empty state when `ai_result` is null
 - [ ] Back button navigates to `/notes`
 - [ ] Not-found state is shown for non-existent note IDs
+- [ ] Edit mode renders text fields for topic and input, and Save/Cancel work correctly
+- [ ] Saving with empty topic or input shows validation errors
+- [ ] Delete button opens confirmation dialog; confirming deletes note and navigates to `/notes`
+- [ ] Delete confirmation cancel closes dialog without changes
 - [ ] `npm run test` passes with all tests green
 - [ ] `npm run build` completes without errors
 - [ ] `npm run lint` passes with no errors
 
 ## Notes
 
-- This view is primarily read-only — displaying existing data.
+- This view allows displaying, editing, and deleting notes, as well as viewing AI-generated results.
 - Feature branch should be named `feature/005-note-detail-view`.
 - Depends on Tickets 001–003 being completed first.
 

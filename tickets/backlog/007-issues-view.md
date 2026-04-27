@@ -57,7 +57,7 @@ Implement the Issues View (`IssuesView.vue`) — a filtered list showing only no
 - This view is read-only — no editing or generation happens here.
 - The NoteDetailView must exist at least as a stub for navigation to work.
 - Feature branch should be named `feature/007-issues-view`.
-- Depends on Tickets 001–005 being completed first.
+- Depends on Tickets 001–004 being completed first.
 
 ## Linked Docs
 

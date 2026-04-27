@@ -1,4 +1,4 @@
-# Ticket 004: Notes View
+# Ticket 003: Notes View
 
 ## Status: `todo`
 
@@ -58,8 +58,8 @@ Implement the Notes View (`NotesView.vue`) — a list of all saved notes with se
 ## Notes
 
 - This view is read-only — no editing or generation happens here.
-- Feature branch should be named `feature/004-notes-view`.
-- Depends on Tickets 001–003 being completed first.
+- Feature branch should be named `feature/003-notes-view`.
+- Depends on Tickets 001–002 being completed first.
 
 ## Linked Docs
 
