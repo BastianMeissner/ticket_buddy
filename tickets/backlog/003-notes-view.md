@@ -1,6 +1,6 @@
 # Ticket 003: Notes View
 
-## Status: `todo`
+## Status: `in-progress`
 
 ## Priority: `medium`
 
