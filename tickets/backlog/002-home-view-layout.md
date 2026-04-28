@@ -1,6 +1,6 @@
 # Ticket 002: Home View Layout & Note Saving
 
-## Status: `in-progress`
+## Status: `in-review`
 
 ## Priority: `high`
 
