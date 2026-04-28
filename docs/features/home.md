@@ -40,6 +40,13 @@ The main content area, vertically centered on the page:
 - Tapping a note navigates to `/notes/:id`.
 - On mobile (`sm` and below), this panel moves below the input area or is accessible via a toggle.
 
+### Bottom Right — Live Clock
+
+- A small, unobtrusive live clock fixed to the bottom-right corner of the viewport (`position: fixed; bottom: 16px; right: 16px`).
+- Displays the current time in `HH:MM:SS` format, updated every second.
+- Purely textual — no background, no border, no chip or card wrapper.
+- Uses `caption`-level typography and monospace font for digit stability, with muted text color (`text-medium-emphasis` / `#9E9E9E`).
+
 ## UI / Theme
 
 - **Background:** White (`#FFFFFF`).
@@ -47,6 +54,7 @@ The main content area, vertically centered on the page:
 - **Secondary actions (Save Note):** Red outlined variant, visually lighter.
 - **Text area:** White surface with subtle `elevation-1`, `rounded-lg`.
 - **Recent notes panel:** White `v-card` with `elevation-1`, list items with hover effect using light red tint (`#FFCDD2`).
+- **Live clock:** Muted gray (`#9E9E9E`), `caption` typography, monospace font — no background, no border, purely textual and non-distracting.
 - **Overall feel:** Clean, spacious, modern. The input area should feel like a chat interface — inviting and frictionless.
 
 ## Behavior
@@ -67,6 +75,7 @@ The main content area, vertically centered on the page:
 - The `v-select` should use `density="comfortable"` and `variant="outlined"` for a clean look.
 - Disable the "Generate" button when the text area is empty.
 - Show a `v-progress-linear` or loading state on the "Generate" button while AI is processing.
+- **Live clock:** Use a `ref<string>` to hold the formatted time string. Start a `setInterval` (1000 ms) in `onMounted` that updates the ref via `new Date().toLocaleTimeString('de-DE')`. Clear the interval in `onUnmounted` to prevent memory leaks.
 
 ## Acceptance Criteria
 
@@ -79,3 +88,4 @@ The main content area, vertically centered on the page:
 - [ ] Recent notes panel adapts on mobile (below content or toggle).
 - [ ] Follows the white-and-red theme with modern, clean design.
 - [ ] Layout is fully responsive on desktop and mobile.
+- [ ] Live clock (`HH:MM:SS`) is displayed unobtrusively in the bottom-right corner and updates every second.
