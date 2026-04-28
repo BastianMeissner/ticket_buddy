@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useNotesStore } from '@/stores/notes'
 
@@ -52,25 +52,6 @@ const recentNotes = computed(() => {
     .slice(0, 10)
 })
 
-// Live clock
-const currentTime = ref('')
-
-function updateClock(): void {
-  currentTime.value = new Date().toLocaleTimeString('de-DE')
-}
-
-let clockInterval: ReturnType<typeof setInterval> | null = null
-
-onMounted((): void => {
-  updateClock()
-  clockInterval = setInterval(updateClock, 1000)
-})
-
-onUnmounted((): void => {
-  if (clockInterval) {
-    clearInterval(clockInterval)
-  }
-})
 </script>
 
 <template>
@@ -213,24 +194,11 @@ onUnmounted((): void => {
         </v-card>
       </v-col>
     </v-row>
-
-    <!-- Live Clock -->
-    <div class="live-clock text-caption text-medium-emphasis">
-      {{ currentTime }}
-    </div>
   </v-container>
 </template>
 
 <style scoped>
 .recent-note-item:hover {
   background-color: #FFCDD2;
-}
-
-.live-clock {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  font-family: monospace;
-  color: #9E9E9E;
 }
 </style>
